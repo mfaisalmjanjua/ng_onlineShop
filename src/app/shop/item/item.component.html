@@ -1,0 +1,21 @@
+<div class="item">
+  <div class="product">
+    <div class="uti sale" *ngIf="prod.sale">{{ prod.sale }}</div>
+    <div class="uti feature" *ngIf="prod.feature">{{ prod.feature }}</div>
+    <div class="container">
+      <img
+        src="assets/product/{{ prod.image }}.png"
+        class="img-fluid"
+        style="max-width: 170px"
+      />
+    </div>
+  </div>
+  <div class="info">
+    <div class="name">{{ prod.name }}</div>
+    <div class="rating">rating</div>
+    <div class="price">
+      <div class="oldPrice">{{ prod.old }}</div>
+      <div class="disPrice">{{ prod.discount }}</div>
+    </div>
+  </div>
+</div>
