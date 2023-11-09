@@ -1,3 +1,12 @@
+<div class="foot">
+  <div class="total">Total Item : {{totalItems}}</div>
+  <div class="pagi">
+    <ul>
+      <li *ngFor="let p of page">{{p  }}</li>
+    </ul>
+  </div>
+</div>
+
 <div class="product-wrapper">
   <app-item *ngFor="let item of products" [prod]="item"></app-item>
 </div>
