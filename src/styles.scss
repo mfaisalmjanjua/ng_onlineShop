@@ -4,7 +4,11 @@
 $primaryFont: "Poppins";
 $primaryFontSize: "16px";
 
+
+
 body {
+  min-height:100vh;
+  height: auto;
   font-family: $primaryFont;
   font-size: $primaryFontSize;
 }

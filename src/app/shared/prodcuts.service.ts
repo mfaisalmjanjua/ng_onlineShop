@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Item } from '@app/models/item';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,6 +12,6 @@ export class ProdcutsService {
   }
 
   getAll() {
-    return this._http.get(`${environment.localSrv}products`);
+    return this._http.get<Item[]>(`${environment.localSrv}products`);
   }
 }

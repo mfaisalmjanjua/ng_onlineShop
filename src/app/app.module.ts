@@ -12,9 +12,10 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { ItemComponent } from './shop/item/item.component';
 import { ShopComponent } from './shop/shop.component';
+import { HeaderComponent } from './common/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, ItemComponent, ShopComponent],
+  declarations: [AppComponent, CourseComponent, ItemComponent, ShopComponent, HeaderComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

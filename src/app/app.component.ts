@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Courses } from './models/course';
 import { CourseService } from './course.service';
 
@@ -7,24 +14,21 @@ import { CourseService } from './course.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
-  courses:Courses[]=[];
-
-  title = 'onlineShop';
-  constructor(private srv:CourseService) {}
-
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.srv.getCourses().subscribe(reponse=>{
-      this.courses = reponse;
-    })
+export class AppComponent implements OnInit, AfterViewInit {
+  courses: Courses[] = [];
+  
+  constructor(private srv: CourseService) {
+    // scroll to top on load /reset
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
   }
 
-  onChangeStatusRequest(e:any, index: number){
-    this.courses[index].status= e;
-    console.log(e, "root")
+  ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
   }
-
-
 }

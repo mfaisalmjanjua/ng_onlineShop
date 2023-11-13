@@ -1,12 +1,24 @@
-<div class="foot">
-  <div class="total">Total Item : {{totalItems}}</div>
-  <div class="pagi">
-    <ul>
-      <li *ngFor="let p of page">{{p  }}</li>
-    </ul>
+<div class="loading" *ngIf="loading">loading....</div>
+<ng-container *ngIf="!loading">
+  <div class="foot">
+    <!-- <div class="total">Total Item : {{ totalItems }}</div> -->
+    <div class="pagi">
+      <select
+        [value]="productPerPage"
+        (change)="changePageSize($event)"
+      >
+      <option value="2">2</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+    </select>
+      <ul>
+        <li *ngFor="let page of pageNumbers" (click)="changePage(page)">
+          {{ page }}
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-
-<div class="product-wrapper">
-  <app-item *ngFor="let item of products" [prod]="item"></app-item>
-</div>
+  <div class="product-wrapper">
+    <app-item *ngFor="let item of products" [prod]="item"></app-item>
+  </div>
+</ng-container>
