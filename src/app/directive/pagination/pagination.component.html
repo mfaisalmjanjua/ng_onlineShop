@@ -1,13 +1,18 @@
-<div class="foot">
+<div class="pagination-wrapper">
   <div class="total">Total Item : 12</div>
-  <div class="pagi">
-    <select [value]="productPerPage">
+
+  <div class="pagination">
+    <select [value]="productPerPage" (change)="loadItemPerPage($event)">
       <option value="5">5 Per Page</option>
       <option value="10">10 Per Page</option>
       <option value="15">15 Per Page</option>
     </select>
     <ul>
-      <li *ngFor="let page of total">
+      <li
+        *ngFor="let page of pageNumbers"
+        (click)="onChangePage(page)"
+        [ngClass]="{ active: currentPage == page }"
+      >
         {{ page }}
       </li>
     </ul>

@@ -4,8 +4,9 @@
     <app-pagination
       [currentPage]="selectedPage"
       [productPerPage]="productPerPage"
-      [total]="pageNumbers"
-      (changePage)="changePage2($event)"
+      [total]="totalItems"
+      (changePage)="changePage($event)"
+      (itemPerPage)="changePageSize($event)"
     ></app-pagination>
   </div>
   <div class="product-wrapper">
